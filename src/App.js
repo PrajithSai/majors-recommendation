@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import './App.css';
 import Majors from './Majors';
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 function App() {
   return (
