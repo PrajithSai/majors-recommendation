@@ -32,6 +32,13 @@ export default function BasicInfo() {
     <Form {...layout} onFinish={onFinish} validateMessages={validateMessages}>
       <Row gutter={[24, 6]} justify="center">
         <Col sm={32} md={16} lg={8}>
+          <Form.Item label="Grading Scale">
+            <Select>
+              <Select.Option value="4">4.0 scale</Select.Option>
+              <Select.Option value="5">5.0 scale</Select.Option>
+              <Select.Option value="100">100% grading scale</Select.Option>
+            </Select>
+          </Form.Item>
           <Form.Item
             name={['user', 'name']}
             label="What is your most recent grade point average (GPA)?"
@@ -46,13 +53,7 @@ export default function BasicInfo() {
           >
             <InputNumber />
           </Form.Item>
-          <Form.Item label="Grading Scale">
-            <Select>
-              <Select.Option value="4">4.0 scale</Select.Option>
-              <Select.Option value="5">5.0 scale</Select.Option>
-              <Select.Option value="100">100% grading scale</Select.Option>
-            </Select>
-          </Form.Item>
+
           <Form.Item
             name="math-years"
             label="How many years of math did you take in high school?"
@@ -60,7 +61,7 @@ export default function BasicInfo() {
             <Radio.Group>
               <Space direction="vertical">
                 <Radio value="0">0 Years</Radio>
-                <Radio value="1">1 Years</Radio>
+                <Radio value="1">1 Year</Radio>
                 <Radio value="2">2 Years</Radio>
                 <Radio value="3">3 Years</Radio>
                 <Radio value="4">4 Years</Radio>
@@ -77,7 +78,7 @@ export default function BasicInfo() {
             <Radio.Group>
               <Space direction="vertical">
                 <Radio value="0">0 Years</Radio>
-                <Radio value="1">1 Years</Radio>
+                <Radio value="1">1 Year</Radio>
                 <Radio value="2">2 Years</Radio>
                 <Radio value="3">3 Years</Radio>
                 <Radio value="4">4 Years</Radio>

@@ -16,15 +16,15 @@ const steps = [
   },
   {
     title: 'Course Enjoyment',
-    content: 'Third-content',
+    content: 'Course Enjoyment',
   },
   {
     title: 'GPA',
-    content: 'Fourth-content',
+    content: 'GPA',
   },
   {
     title: 'Interests and Personality',
-    content: 'Last-content',
+    content: 'Interests and Personality',
   },
 ];
 
