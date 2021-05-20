@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Steps, Button, message } from 'antd';
 import BasicInfo from './BasicInfo';
+import CourseGrades from './CourseGrades';
 
 const { Step } = Steps;
 
@@ -11,7 +12,7 @@ const steps = [
   },
   {
     title: 'Course Grades',
-    content: 'Second-content',
+    content: <CourseGrades />,
   },
   {
     title: 'Course Enjoyment',
@@ -38,15 +39,19 @@ export default function Majors() {
     setCurrent(current - 1);
   };
 
+  const onChange = (current) => {
+    setCurrent(current);
+  };
+
   return (
     <div className="majors-stepper">
-      <Steps current={current} responsive>
+      <Steps progressDot onChange={onChange} current={current} responsive>
         {steps.map((item) => (
           <Step key={item.title} title={item.title} />
         ))}
       </Steps>
       <div className="steps-content">{steps[current].content}</div>
-      <div className="steps-action">
+      <div className="steps-action" style={{ textAlign: 'center' }}>
         {current < steps.length - 1 && (
           <Button type="primary" onClick={() => next()}>
             Next

@@ -3,10 +3,14 @@
 }
 .majors-stepper {
   background-color: white;
-  margin: 2rem;
+  margin-top: 2rem;
   padding: 2rem;
   border-radius: 0.4rem;
 }
+.steps-content {
+  padding: 2rem;
+}
+/* 
 .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon {
   background-color: #003643;
   border-color: #003643;
@@ -59,4 +63,4 @@
 }
 .steps-content {
   padding: 2rem;
-}
+} */
