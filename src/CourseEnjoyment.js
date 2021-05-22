@@ -45,28 +45,36 @@ export default function CourseGrades() {
         <Row gutter={[24, 6]} justify="center" style={{ marginTop: '1rem' }}>
           <Col sm={32} md={16} lg={12}>
             <Title level={3}>Course Enjoyment</Title>
-            {Object.keys(courseEnjoyment).map((course) => (
-              <Form.Item label={course}>
-                <Select
-                  value={courseEnjoyment[course]}
-                  onChange={handleChange(course)}
-                >
-                  <Select.Option value="strongly_disliked">
-                    Strongly Disliked It
-                  </Select.Option>
-                  <Select.Option value="somewhat_disliked">
-                    Somewhat Disliked It
-                  </Select.Option>
-                  <Select.Option value="Neutral">Neutral</Select.Option>
-                  <Select.Option value="somewhat_liked">
-                    Somewhat Liked It
-                  </Select.Option>
-                  <Select.Option value="stongly_liked">
-                    Strongly Liked It
-                  </Select.Option>
-                </Select>
-              </Form.Item>
-            ))}
+
+            {Object.keys(courseEnjoyment).length ? (
+              Object.keys(courseEnjoyment).map((course) => (
+                <Form.Item label={course}>
+                  <Select
+                    value={courseEnjoyment[course]}
+                    onChange={handleChange(course)}
+                  >
+                    <Select.Option value="strongly_disliked">
+                      Strongly Disliked It
+                    </Select.Option>
+                    <Select.Option value="somewhat_disliked">
+                      Somewhat Disliked It
+                    </Select.Option>
+                    <Select.Option value="Neutral">Neutral</Select.Option>
+                    <Select.Option value="somewhat_liked">
+                      Somewhat Liked It
+                    </Select.Option>
+                    <Select.Option value="stongly_liked">
+                      Strongly Liked It
+                    </Select.Option>
+                  </Select>
+                </Form.Item>
+              ))
+            ) : (
+              <Paragraph>
+                Please add your course grades in the previous screen to see your
+                course enjoyment details.
+              </Paragraph>
+            )}
           </Col>
         </Row>
       </Form>
