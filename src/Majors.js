@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Steps, Button, message } from 'antd';
 import BasicInfo from './BasicInfo';
 import CourseGrades from './CourseGrades';
+import CourseEnjoyment from './CourseEnjoyment';
+import InterestsAndPersonality from './InterestsAndPersonality';
 
 const { Step } = Steps;
 
@@ -16,15 +18,15 @@ const steps = [
   },
   {
     title: 'Course Enjoyment',
-    content: 'Course Enjoyment',
-  },
-  {
-    title: 'GPA',
-    content: 'GPA',
+    content: <CourseEnjoyment />,
   },
   {
     title: 'Interests and Personality',
-    content: 'Interests and Personality',
+    content: <InterestsAndPersonality />,
+  },
+  {
+    title: 'Recommended Majors',
+    content: 'Coming soon...',
   },
 ];
 
@@ -52,6 +54,11 @@ export default function Majors() {
       </Steps>
       <div className="steps-content">{steps[current].content}</div>
       <div className="steps-action" style={{ textAlign: 'center' }}>
+        {current > 0 && (
+          <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
+            Previous
+          </Button>
+        )}
         {current < steps.length - 1 && (
           <Button type="primary" onClick={() => next()}>
             Next
@@ -63,11 +70,6 @@ export default function Majors() {
             onClick={() => message.success('Processing complete!')}
           >
             Done
-          </Button>
-        )}
-        {current > 0 && (
-          <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-            Previous
           </Button>
         )}
       </div>
