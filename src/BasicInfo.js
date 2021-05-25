@@ -33,18 +33,18 @@ export default function BasicInfo() {
   }));
 
   const onFinish = (values) => {
-    console.log(values);
+    // console.log(values);
   };
 
   const handleChange = (key) => (value) => {
-    console.log({ key, value });
+    // console.log({ key, value });
     const newBasic = { ...basic };
     newBasic[key] = value;
     dispatch(setBasicInfo(newBasic));
   };
 
   const handleRadioChange = (key) => (event) => {
-    console.log({ key, value: event.target.value });
+    // console.log({ key, value: event.target.value });
     const newBasic = { ...basic };
     newBasic[key] = event.target.value;
     dispatch(setBasicInfo(newBasic));

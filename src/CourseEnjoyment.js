@@ -11,6 +11,34 @@ const layout = {
   },
 };
 
+const courseData = {
+  art: 'Art',
+  biology: 'Biology',
+  chemistry: 'Chemistry',
+  computerScience: 'Computer Science',
+  earthScience_Geology: 'Earth Science / Geology',
+  english: 'English',
+  foreignLanguage: 'Foreign Language',
+  mathematics: 'Mathematics',
+  music: 'Music',
+  physicalEducation_Sports: 'Physical Education / Sports',
+  physics: 'Physics',
+  socialStudies_Government_History: 'Social Studies / Government / History',
+  theater: 'Theater',
+  businessAccounting: 'Business / Accounting',
+  contemporaryIssues: 'Contemporary Issues',
+  economics: 'Economics',
+  geography: 'Geography',
+  journalism: 'Journalism',
+  philosophy_religiousStudies: 'Philosophy / Religious Studies',
+  physiology_anatomy: 'Physiology / Anatomy',
+  psychology: 'Psychology',
+  sociology_anthropology: 'Sociology / Anthropology',
+  speech: 'Speech',
+  visual_arts: 'Visual Arts',
+  writing: 'Writing',
+};
+
 export default function CourseGrades() {
   const dispatch = useDispatch();
 
@@ -19,17 +47,17 @@ export default function CourseGrades() {
   }));
 
   const handleChange = (key) => (value) => {
-    console.log({ key, value });
+    // console.log({ key, value });
     const newCourseEnjoyment = { ...courseEnjoyment };
     newCourseEnjoyment[key] = value;
     dispatch(setCourseEnjoyment(newCourseEnjoyment));
   };
 
   const onFinish = (values) => {
-    console.log(values);
+    // console.log(values);
   };
 
-  console.log(courseEnjoyment);
+  // console.log(courseEnjoyment);
   return (
     <>
       <Paragraph>
@@ -48,7 +76,7 @@ export default function CourseGrades() {
 
             {Object.keys(courseEnjoyment).length ? (
               Object.keys(courseEnjoyment).map((course) => (
-                <Form.Item label={course}>
+                <Form.Item label={courseData[course]}>
                   <Select
                     value={courseEnjoyment[course]}
                     onChange={handleChange(course)}

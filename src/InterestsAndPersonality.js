@@ -77,6 +77,42 @@ const iAndP = [
   { label: 'Engage in social issues and actions?', name: 'socialIssues' },
   { label: 'Stay involved in current events?', name: 'currentEvents' },
   { label: 'Rely on mental images?', name: 'mentalImages' },
+  {
+    label: 'Engage in scientific problem solving?',
+    name: 'scientificProblemSolving',
+  },
+  {
+    label: 'Public dramatic or musical performance?',
+    name: 'dramaticOrMusicalPerformance',
+  },
+  { label: 'Exercise your creativity?', name: 'exerciseCreativity' },
+  {
+    label: 'Limit choices to careers with an above-average salary?',
+    name: 'aboveAverageSalary',
+  },
+  {
+    label: 'Avoid majors lasting more than 4 years?',
+    name: 'majorsMoreThan4Years?',
+  },
+  {
+    label: 'Assist others to resolve conflict situations?',
+    name: 'resolveConflictSituations',
+  },
+  { label: 'Wish to study abroad?', name: 'studyAbroad?' },
+  { label: 'Work in a business environment?', name: 'businessEnvironment?' },
+  { label: 'Combine work with learning?', name: 'workWithLearning?' },
+  {
+    label: 'Value leadership training and experiences?',
+    name: 'leadershipTrainingExperiences',
+  },
+  {
+    label: 'Rely on and trust in your peers, camaraderie?',
+    name: 'camaraderie',
+  },
+  {
+    label: 'Provide nursing and/or healthcare related services?',
+    name: 'nursingOrHealthcare',
+  },
 ];
 
 export default function CourseGrades() {
@@ -87,25 +123,24 @@ export default function CourseGrades() {
   }));
 
   const handleChange = (key) => (value) => {
-    console.log({ key, value });
+    // console.log({ key, value });
     const newinterestsAndPersonality = { ...interestsAndPersonality };
     newinterestsAndPersonality[key] = value;
     // dispatch(setInterestsAndPersonality(newinterestsAndPersonality));
   };
 
   const onFinish = (values) => {
-    console.log(values);
+    // console.log(values);
   };
 
-  console.log(interestsAndPersonality);
+  // console.log(interestsAndPersonality);
   return (
     <>
       <Paragraph>
         <span>
           <strong>Note: </strong>
         </span>
-        Indicate your most recent coursework grade completed, especially if you
-        completed a college-level course.
+        Select the degree to which you dislike or prefer each question
       </Paragraph>
 
       <Form {...layout} onFinish={onFinish}>

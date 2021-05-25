@@ -2,6 +2,7 @@ import React from 'react';
 import { Typography, Row, Col, Radio, Space, Form } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCourseGrades } from '../src/slices/index';
+import { getOrientation } from './utils';
 
 const { Text, Paragraph, Title } = Typography;
 
@@ -55,14 +56,14 @@ export default function CourseGrades() {
   }));
 
   const handleRadioChange = (key) => (event) => {
-    console.log({ key, value: event.target.value });
+    // console.log({ key, value: event.target.value });
     const newCourseGrades = { ...courseGrades };
     newCourseGrades[key] = event.target.value;
     dispatch(setCourseGrades(newCourseGrades));
   };
 
   const onFinish = (values) => {
-    console.log(values);
+    // console.log(values);
   };
 
   // console.log(courseGrades);
@@ -90,7 +91,7 @@ export default function CourseGrades() {
                   value={courseGrades[course.name]}
                   onChange={handleRadioChange(course.name)}
                 >
-                  <Space direction="horizontal">
+                  <Space direction={getOrientation()}>
                     <Radio value="N/A">N/A</Radio>
                     <Radio value="A">A</Radio>
                     <Radio value="B">B</Radio>
@@ -111,7 +112,7 @@ export default function CourseGrades() {
                   value={courseGrades[course.name]}
                   onChange={handleRadioChange(course.name)}
                 >
-                  <Space direction="horizontal">
+                  <Space direction={getOrientation()}>
                     <Radio value="N/A">N/A</Radio>
                     <Radio value="A">A</Radio>
                     <Radio value="B">B</Radio>
