@@ -1,10 +1,7 @@
 import React from 'react';
 import { Typography, Row, Col, Select, Form } from 'antd';
-import {
-  // useDispatch,
-  useSelector,
-} from 'react-redux';
-// import { setInterestsAndPersonality } from './slices/index';
+import { useDispatch, useSelector } from 'react-redux';
+import { setInterestsAndPersonality } from './slices/index';
 
 const { Paragraph } = Typography;
 
@@ -38,8 +35,8 @@ const iAndP = [
     label: 'Study a major that has a clear connection to a career?',
     name: 'connectionToCareer',
   },
-  { label: 'Exert power and authority?', name: 'powerAndAuthority?' },
-  { label: 'Work on self-initiated projects?', name: 'selfInitiatedProjects?' },
+  { label: 'Exert power and authority?', name: 'powerAndAuthority' },
+  { label: 'Work on self-initiated projects?', name: 'selfInitiatedProjects' },
   {
     label: 'Speak to and facilitate groups of people at work? ',
     name: 'facilitateGroups',
@@ -52,7 +49,7 @@ const iAndP = [
     label: 'Use your manual and mechanical skills?',
     name: 'manualAndMechanicalSkills',
   },
-  { label: 'Interest in military service?', name: 'militaryService?' },
+  { label: 'Interest in military service?', name: 'militaryService' },
   {
     label: 'Participate in sports and physically demanding activities?',
     name: 'sports',
@@ -68,7 +65,7 @@ const iAndP = [
   { label: 'Engage in religious activities?', name: 'religiousActivities' },
   {
     label: 'Teach children, young people or adults?',
-    name: 'youngPeopleOrAdults?',
+    name: 'youngPeopleOrAdults',
   },
   {
     label: 'Avoid working with hazardous situations or materials?',
@@ -92,15 +89,15 @@ const iAndP = [
   },
   {
     label: 'Avoid majors lasting more than 4 years?',
-    name: 'majorsMoreThan4Years?',
+    name: 'majorsMoreThan4Years',
   },
   {
     label: 'Assist others to resolve conflict situations?',
     name: 'resolveConflictSituations',
   },
-  { label: 'Wish to study abroad?', name: 'studyAbroad?' },
-  { label: 'Work in a business environment?', name: 'businessEnvironment?' },
-  { label: 'Combine work with learning?', name: 'workWithLearning?' },
+  { label: 'Wish to study abroad?', name: 'studyAbroad' },
+  { label: 'Work in a business environment?', name: 'businessEnvironment' },
+  { label: 'Combine work with learning?', name: 'workWithLearning' },
   {
     label: 'Value leadership training and experiences?',
     name: 'leadershipTrainingExperiences',
@@ -116,7 +113,7 @@ const iAndP = [
 ];
 
 export default function CourseGrades() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const { interestsAndPersonality } = useSelector((state) => ({
     interestsAndPersonality: state.majors.interestsAndPersonality,
@@ -126,7 +123,7 @@ export default function CourseGrades() {
     // console.log({ key, value });
     const newinterestsAndPersonality = { ...interestsAndPersonality };
     newinterestsAndPersonality[key] = value;
-    // dispatch(setInterestsAndPersonality(newinterestsAndPersonality));
+    dispatch(setInterestsAndPersonality(newinterestsAndPersonality));
   };
 
   const onFinish = (values) => {
@@ -158,7 +155,7 @@ export default function CourseGrades() {
                   <Select.Option value="somewhat_disliked">
                     Dislike
                   </Select.Option>
-                  <Select.Option value="Neutral">Neutral</Select.Option>
+                  <Select.Option value="neutral">Neutral</Select.Option>
                   <Select.Option value="somewhat_prefer">Prefer</Select.Option>
                   <Select.Option value="stongly_prefer">
                     Strongly Prefer
