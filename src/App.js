@@ -2,7 +2,7 @@ import { Layout } from 'antd';
 import { Provider } from 'react-redux';
 import 'antd/dist/antd.css';
 import './App.css';
-import Majors from './Majors';
+import Majors from '../src/components/Majors';
 import store from './store/store';
 
 const { Header, Content } = Layout;
@@ -20,7 +20,7 @@ function App() {
             />
           </div>
         </Header>
-        <Content style={{ padding: '0 50px', minHeight: '100vh' }}>
+        <Content className="main-content">
           <div className="site-layout-content">
             <Majors />
           </div>
