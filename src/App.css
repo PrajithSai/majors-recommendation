@@ -4,12 +4,25 @@
 .majors-stepper {
   background-color: white;
   margin-top: 2rem;
-  padding: 2rem;
+  padding: 5rem;
   border-radius: 0.4rem;
 }
 .steps-content {
-  padding: 2rem;
+  padding: 2rem 0px;
 }
+.main-content {
+  padding: 0 5rem;
+  min-height: 100vh;
+}
+@media only screen and (max-width: 600px) {
+  .main-content {
+    padding: 0 1rem;
+  }
+  .majors-stepper {
+    padding: 1rem;
+  }
+}
+
 /* 
 .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon {
   background-color: #003643;
