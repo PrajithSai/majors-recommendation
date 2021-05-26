@@ -16,4 +16,5 @@ export const getOrientation = () => {
     return check;
   }
   return isMobileDevice() ? 'vertical' : 'horizontal';
+  // return 'horizontal';
 };
