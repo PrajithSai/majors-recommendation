@@ -10,7 +10,7 @@ const { Step } = Steps;
 
 const steps = [
   {
-    title: 'Basic Info',
+    title: 'GPA',
     content: <BasicInfo />,
   },
   {
