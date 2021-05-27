@@ -18,6 +18,21 @@ const course_weights = {
   },
 };
 
+const gpa_weight = 2;
+
+const math_years_weights = {
+  direct: { 0: 0, 1: 5, 2: 10, 3: 15, 4: 20, 5: 25 },
+  indirect: { 0: 0, 1: 3, 2: 6, 3: 9, 4: 12, 5: 15 },
+};
+
+const personality_and_interests_weights = {
+  strongly_disliked: -5,
+  somewhat_disliked: -2,
+  neutral: 0,
+  somewhat_prefer: 10,
+  stongly_prefer: 20,
+};
+
 export const direct = {
   Physics: [
     'Aerospace Engineering',
@@ -559,7 +574,42 @@ const allMajors = [
   'Psychology',
 ];
 
-export const getRecommendations = (courses) => {
+const interestsAndPersonalityRelations = {
+  environmentalProblems: [
+    'Aerospace Engineering',
+    'Biological Sciences',
+    'Environmental Engineering',
+    'Geological Engineering',
+    'Geology and Geophysics',
+  ],
+  organizations_Groups: [
+    'Aerospace Engineering',
+    'Engineering Management',
+    'Mining Engineering',
+    'Petroleum Engineering',
+    'Technical Communication',
+  ],
+  helpSolveProblems: [
+    'Engineering Management',
+    'Environmental Engineering',
+    'Geological Engineering',
+  ],
+  teachYoungPeopleOrAdults: ['Multidisciplinary Studies', 'Psychology'],
+  workingOutdoors: [
+    'Environmental Engineering',
+    'Geology and Geophysics',
+    'Metallurgical Engineering',
+    'Mining Engineering',
+    'Petroleum Engineering',
+  ],
+};
+
+export const getRecommendations = ({
+  courseEnjoyment,
+  basic,
+  interestsAndPersonality,
+}) => {
+  const courses = courseEnjoyment;
   const result = {};
   allMajors.map((major) => (result[major] = 0));
   Object.keys(courses).map((course) => {
@@ -570,16 +620,40 @@ export const getRecommendations = (courses) => {
       (i) => i.name.includes(courseName) || i.name === courseName
     );
     matchedCoursesDirect.map((course) => {
-      course.majors.map((major) => (result[major] += courseScoreDirect));
+      course.majors.map((major) => {
+        result[major] += courseScoreDirect;
+        if (basic.mathYears !== '' && direct.Mathematics.includes(major)) {
+          result[major] += math_years_weights.direct[Number(basic.mathYears)];
+        }
+      });
     });
     const matchedCoursesIndirect = indirectArray.filter(
       (i) => i.name.includes(courseName) || i.name === courseName
     );
     matchedCoursesIndirect.map((course) => {
-      course.majors.map((major) => (result[major] += courseScoreIndirect));
+      course.majors.map((major) => {
+        result[major] += courseScoreIndirect;
+        if (basic.mathYears !== '' && indirect.Mathematics.includes(major)) {
+          result[major] += math_years_weights.indirect[Number(basic.mathYears)];
+        }
+      });
     });
     // console.log({ courseName, courseScore, matchedCoursesDirect });
   });
+
+  if (basic.recentGPA !== '' && Number(basic.recentGPA) > 2.5) {
+    result['Aerospace Engineering'] += gpa_weight;
+  }
+
+  Object.keys(interestsAndPersonality).map((key) => {
+    if (interestsAndPersonality[key] !== 'neutral') {
+      interestsAndPersonalityRelations[key].map((major) => {
+        result[major] +=
+          personality_and_interests_weights[interestsAndPersonality[key]];
+      });
+    }
+  });
+
   // console.log(result);
   return Object.keys(result).map((key) => ({ major: key, score: result[key] }));
 };
