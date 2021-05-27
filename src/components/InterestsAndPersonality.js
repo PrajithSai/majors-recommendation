@@ -65,7 +65,7 @@ const iAndP = [
   { label: 'Engage in religious activities?', name: 'religiousActivities' },
   {
     label: 'Teach children, young people or adults?',
-    name: 'youngPeopleOrAdults',
+    name: 'teachYoungPeopleOrAdults',
   },
   {
     label: 'Avoid working with hazardous situations or materials?',
@@ -109,6 +109,10 @@ const iAndP = [
   {
     label: 'Provide nursing and/or healthcare related services?',
     name: 'nursingOrHealthcare',
+  },
+  {
+    label: 'Tackle problems in environmental pollution of air and water?',
+    name: 'environmentalProblems',
   },
 ];
 
