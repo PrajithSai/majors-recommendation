@@ -101,7 +101,7 @@ export default function BasicInfo() {
           </Form.Item>
         </Col>
 
-        <Col sm={32} md={16} lg={8}>
+        {/* <Col sm={32} md={16} lg={8}>
           <Form.Item label="How many years of foreign language did you take in high school?">
             <Radio.Group
               name="fl-years"
@@ -131,7 +131,7 @@ export default function BasicInfo() {
               </Space>
             </Radio.Group>
           </Form.Item>
-        </Col>
+        </Col> */}
       </Row>
     </Form>
   );
