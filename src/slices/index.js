@@ -57,7 +57,7 @@ export const majorsSlice = createSlice({
       disciplinedStudySkills: 'neutral',
       peoplesAndCultures: 'neutral',
       religiousActivities: 'neutral',
-      youngPeopleOrAdults: 'neutral',
+      teachYoungPeopleOrAdults: 'neutral',
       hazardousSituations: 'neutral',
       socialIssues: 'neutral',
       currentEvents: 'neutral',
@@ -74,6 +74,7 @@ export const majorsSlice = createSlice({
       leadershipTrainingExperiences: 'neutral',
       camaraderie: 'neutral',
       nursingOrHealthcare: 'neutral',
+      environmentalProblems: 'neutral',
     },
   },
   reducers: {
